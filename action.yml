@@ -1,0 +1,16 @@
+name: 'kubectl-action'
+description: 'Simple kubectl action'
+inputs:
+  config:
+    description: 'Kubernetes config'
+    required: true
+  command:
+    description: 'kubectl command'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.config }}
+    - ${{ inputs.command }}
